@@ -3,7 +3,7 @@
 case "$1" in
 	start)
 		echo "Starting web kiosk"
-		/usr/bin/qt-webkit-kiosk --platform linuxfb --uri https://google.com
+		/usr/bin/qt-webkit-kiosk --platform linuxfb --uri file:///var/www/index.html
 		;;
 	*)
 		echo "Usage: $0 {start}"
