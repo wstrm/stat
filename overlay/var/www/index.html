@@ -1,1 +1,131 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Stat</title><base href=""><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><link href="styles.7cc3cbee75d36fee6a86.bundle.css" rel="stylesheet"/></head><body><app-root></app-root><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.bf95165a1d5098766b92.bundle.js"></script><script type="text/javascript" src="main.9d7ccc2cabc852365b79.bundle.js"></script></body></html>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>stat</title>
+		<style>
+body, html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+body {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: black;
+	-webkit-transition: background 1.5s ease-in;
+	-moz-transition: background 1.5s ease-in;
+	-o-transition: background 1.5s ease-in;
+	-ms-transition: background 1.5s ease-in;
+	transition: background 1.5s ease-in;
+}
+
+h1, h3 {
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	color: #fff;
+	text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.6);
+	font-size: 10em;
+}
+
+h3 {
+	color: #fff;
+	text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.6);
+	text-transform: capitalize;
+	font-size: 2em;
+}
+
+.main-box {
+	display: table;
+	overflow: hidden;
+
+	height: 100%;
+	width: 100%;
+
+	margin: 0;
+	padding: 0;
+}
+
+.center-box {
+	display: table-cell;
+	margin: 0;
+	padding: 0;
+
+	text-align: center;
+	vertical-align: middle;
+}
+
+.content {
+	margin: auto;
+}
+		</style>
+	</head>
+	<body>
+		<div class="main-box">
+			<div class="center-box">	
+				<h1 class="content" id="clock"></h1>
+				<h3 class="content" id="date"></h3>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+function padWithZero(num) {
+	return ("0" + num).slice(-2);
+}
+
+function updateTime(id) {
+	return function() {
+		var date = new Date()
+		document.getElementById(id)
+			.textContent = padWithZero(date.getHours()) + ":" + padWithZero(date.getMinutes());
+	};
+}
+
+function updateDate(id) {
+	var days = [
+		"Sunday",
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Saturday"];
+
+	return function() {
+		var date = new Date()
+		document.getElementById(id)
+			.textContent = days[date.getDay()] + " " + date.getDate() + "/" + (date.getMonth() + 1) + " " + date.getFullYear();
+	};
+}
+
+function updateBackground() {
+	var wallpaperURL = "https://source.unsplash.com/daily";
+
+	return function() {
+		document.body.style.backgroundImage = "url('" + wallpaperURL + "?" + new Date().getDay(); + "')";
+	};
+}
+
+function init() {
+	var timeFn = updateTime("clock");
+	var dateFn = updateDate("date");
+	var backgroundFn = updateBackground();
+
+	timeFn();
+	dateFn();
+	backgroundFn();
+
+	setInterval(timeFn, 1000);
+	setInterval(dateFn, 1000);
+	setInterval(backgroundFn, 1000 * 60 * 60 * 24);
+}
+
+init();
+	</script>
+<html>
