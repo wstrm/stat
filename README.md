@@ -1,7 +1,8 @@
 Stat
 ====
 
-Stat is a operating system that starts a simple web browser (in the framebuffer) as quickly as possible.
+Stat is a operating system that starts a simple web browser (in the framebuffer) as quickly as possible in order to show web-based statistics. The browser opens in fullscreen and borderless mode which is developed in Qt. 
+Developed towards the Raspberry Pi 2, this can easily changed by by adding a new defconfig for your specific board.
 
 ## Build
 ### With Docker
