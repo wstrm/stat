@@ -1,0 +1,16 @@
+config BR2_PACKAGE_STAT_WEBVIEW
+	bool "stat-webview"
+	depends on BR2_PACKAGE_QT5
+	select BR2_PACKAGE_OPENSSL
+	select BR2_PACKAGE_QT5BASE
+	select BR2_PACKAGE_QT5BASE_GUI
+	select BR2_PACKAGE_QT5BASE_WIDGETS
+	select BR2_PACKAGE_QT5WEBENGINE
+	depends on !BR2_PREFER_STATIC_LIB
+	depends on BR2_PACKAGE_QT5_JSCORE_AVAILABLE	
+	help
+		Just a simple webview.
+
+config BR2_PACKAGE_STAT_WEBVIEW_WEBPAGE
+	string "Web page to display"
+	default "https://example.org"
