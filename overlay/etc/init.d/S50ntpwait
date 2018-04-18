@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		echo "Waiting for ntpd to stabilize (1000s timeout)"
+		/usr/bin/ntp-wait -s 1 -n 1000
+		;;
+	*)
+		echo "Usage: $0 {start}"
+		exit 1
+esac
+
+exit $?
