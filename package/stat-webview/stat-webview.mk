@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-STAT_WEBVIEW_VERSION = 4b830b15a91ddab259ab324670c0300b9af4f01e
+STAT_WEBVIEW_VERSION = 4dd400b8a1cb4d60ca8a7167025b0f19e78d134b
 STAT_WEBVIEW_SITE = https://github.com/willeponken/stat-webview.git
 STAT_WEBVIEW_SITE_METHOD = git
 STAT_WEBVIEW_DEPENDENCIES = qt5webengine
