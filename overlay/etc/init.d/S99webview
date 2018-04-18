@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		echo "Starting web view"
+		/usr/bin/stat-webview
+		;;
+	*)
+		echo "Usage: $0 {start}"
+		exit 1
+esac
+
+exit $?
