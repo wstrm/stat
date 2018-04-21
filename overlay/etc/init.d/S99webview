@@ -3,7 +3,10 @@
 case "$1" in
 	start)
 		echo "Starting web view"
-		/usr/bin/stat-webview
+		while true;
+		do
+			/usr/bin/stat-webview
+		done
 		;;
 	*)
 		echo "Usage: $0 {start}"

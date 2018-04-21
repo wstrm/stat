@@ -17,11 +17,6 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-color: black;
-	-webkit-transition: background 1.5s ease-in;
-	-moz-transition: background 1.5s ease-in;
-	-o-transition: background 1.5s ease-in;
-	-ms-transition: background 1.5s ease-in;
-	transition: background 1.5s ease-in;
 }
 
 h1, h3 {
@@ -80,7 +75,7 @@ function padWithZero(num) {
 }
 
 function updateTime(id) {
-	return function() {
+	return async function() {
 		var date = new Date()
 		document.getElementById(id)
 			.textContent = padWithZero(date.getHours()) + ":" + padWithZero(date.getMinutes());
@@ -97,7 +92,7 @@ function updateDate(id) {
 		"Friday",
 		"Saturday"];
 
-	return function() {
+	return async function() {
 		var date = new Date()
 		document.getElementById(id)
 			.textContent = days[date.getDay()] + " " + date.getDate() + "/" + (date.getMonth() + 1) + " " + date.getFullYear();
@@ -107,7 +102,7 @@ function updateDate(id) {
 function updateBackground() {
 	var wallpaperURL = "https://source.unsplash.com/daily";
 
-	return function() {
+	return async function() {
 		document.body.style.backgroundImage = "url('" + wallpaperURL + "?" + new Date().getDay(); + "')";
 	};
 }

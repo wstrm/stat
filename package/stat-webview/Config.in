@@ -14,3 +14,7 @@ config BR2_PACKAGE_STAT_WEBVIEW
 config BR2_PACKAGE_STAT_WEBVIEW_WEBPAGE
 	string "Web page to display"
 	default "https://example.org"
+
+config BR2_PACKAGE_STAT_WEBVIEW_RESOLUTION
+	string "Screen resolution (optional)"
+	default "1920x1080"
