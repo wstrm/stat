@@ -1,9 +1,9 @@
-FROM ubuntu
+FROM ubuntu:bionic
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qqy update
-RUN apt-get -qqy install patch cpio python unzip rsync bc bzip2 ncurses-dev git make g++ gawk wget flex bison
+RUN apt-get -qqy install patch cpio python unzip rsync bc bzip2 ncurses-dev git make g++ gawk wget flex bison gcc-multilib g++-multilib
 
 RUN useradd -ms /bin/bash bob
 USER bob
