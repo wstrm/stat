@@ -5,7 +5,7 @@ case "$1" in
 		echo "Starting web view"
 		while true;
 		do
-			/usr/bin/stat-webview
+			/usr/bin/stat-webview --no-sandbox --disable-gpu
 		done
 		;;
 	*)
