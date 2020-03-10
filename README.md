@@ -7,32 +7,38 @@ Developed towards the Raspberry Pi 2, this can easily changed by adding a new de
 ## Build
 ### With Docker
 Create a output directory:
-```
+
+```bash
 mkdir /tmp/result
 ```
 
 Build the Docker container:
-```
+
+```bash
 docker build . -t stat:latest
 ```
 
 Start the compilation:
-```
+
+```bash
 docker run -it -v /tmp/result:/home/bob/output stat:latest
 ```
 
 The resulting image in `/tmp/result/images/sdcard.img` can be flashed to a SD-card with `dd` (make sure you replace `/dev/mmcblk0` with the correct device):
-```
+
+```bash
 dd if=/tmp/result/images/sdcard.img of=/dev/mmcblk0 ; sync
 ```
 
 ### Without Docker
 Make sure you have all dependencies that Buildroot requires and run:
-```
+
+```bash
 ./bin/build raspberrypi2_stat_defconfig
 ```
 
 The resulting image in `output/images/sdcard.img` can be flashed to a SD-card with `dd` (make sure you replace `/dev/mmcblk0` with the correct device):
-```
+
+```bash
 dd if=output/images/sdcard.img of=/dev/mmcblk0 ; sync
 ```
